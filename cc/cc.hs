@@ -1,12 +1,7 @@
-pushBack :: [Integer] -> Integer -> [Integer]
-pushBack [] x = [x]
-pushBack [a] x = a : [x]
-pushBack (a : b : rest) x = a : b : pushBack rest x
-
 reverseList :: [Integer] -> [Integer]
 reverseList [] = []
 reverseList [x, y] = [y, x]
-reverseList (x : rest) = pushBack (reverseList rest) x
+reverseList (x : rest) = reverseList rest ++ [x]
 
 toDigitsReversed :: Integer -> [Integer]
 toDigitsReversed n
